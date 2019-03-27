@@ -9,15 +9,25 @@
 import UIKit
 import FirebaseAuth
 import FirebaseDatabase
+import MapKit
 
 
 
 class DriverViewController: UICollectionViewController {
     
     var requests = [Request]()
+    var locationManager = CLLocationManager()
+    var driverLocation = CLLocationCoordinate2D()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.startUpdatingLocation()
+        
+        
         
         // Obtener todos los viajes
         Database.database().reference().child("RideRequests").observe(.childAdded) { (snapshot) in
@@ -33,10 +43,17 @@ class DriverViewController: UICollectionViewController {
                 
             }
         }
-        
 
-      
     }
+    
+    
+    
+    
+    @IBAction func signOutAction(_ sender: UIBarButtonItem) {
+        try? Auth.auth().signOut()
+        navigationController?.dismiss(animated: true, completion: nil)
+    }
+    
 
     // MARK: UICollectionViewDataSource
 
@@ -56,11 +73,31 @@ class DriverViewController: UICollectionViewController {
         
         let request = requests[indexPath.row]
         
+        
+        // Calcular distancia entre conductor y pasajero
+        let driverCLLocation = CLLocation(latitude: driverLocation.latitude, longitude: driverLocation.longitude)
+        let riderCLLocation = CLLocation(latitude: request.lat, longitude: request.lon)
+        let distance = driverCLLocation.distance(from: riderCLLocation) / 1000
+        let roundDistance = round(distance * 100) / 100
+        
         cell.emailLabel.text = request.email
+        cell.riderDistance.text = "\(roundDistance) km de distancia"
     
         return cell
     }
 
    
 
+}
+
+
+extension DriverViewController: CLLocationManagerDelegate{
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        
+        if let coord = manager.location?.coordinate{
+            // Obtener localización del conductor
+            driverLocation = coord
+        }
+    }
 }
