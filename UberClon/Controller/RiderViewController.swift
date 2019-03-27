@@ -20,8 +20,9 @@ class RiderViewController: UIViewController {
     
     var locationManager = CLLocationManager()
     var riderLocation = CLLocationCoordinate2D()
-    
+    var driverLocation = CLLocationCoordinate2D()
     var hasBeenUberCalled = false
+    var driverOnTheWay = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,6 +40,25 @@ class RiderViewController: UIViewController {
                 self.callUberButton.setTitle("Cancelar taxi", for: .normal)
                 
                 Database.database().reference().child("RideRequests").removeAllObservers()
+                
+                
+                
+                // Vamos a escuchar si ya hay conductor asignado a nuestro viaje, si es así entonces lo tenemos que mostrar en nuestro mapa también
+                if let snapValue = snapshot.value as? [String: AnyObject]{
+                    
+                    if let driverLat = snapValue["driverLat"] as? Double, let driverLon = snapValue["driverLon"] as? Double{
+                        
+                        // Asignar localización del conductor
+                        self.driverLocation = CLLocationCoordinate2D(latitude: driverLat, longitude: driverLon)
+                        
+                        // Driver ya viene en camino
+                        self.driverOnTheWay = true
+                        self.displayDistanceBetweenDriverAndRider()
+                        
+                        
+                    }
+                    
+                }
             }
         }
         
@@ -46,6 +66,16 @@ class RiderViewController: UIViewController {
         
         
         
+    }
+    
+    
+    func displayDistanceBetweenDriverAndRider(){
+        let driverCLLocation = CLLocation(latitude: driverLocation.latitude, longitude: driverLocation.longitude)
+        let riderCLLocation = CLLocation(latitude: riderLocation.latitude, longitude: riderLocation.longitude)
+        
+        let distance = driverCLLocation.distance(from: riderCLLocation) / 1000
+        let roundDistance = round(distance * 100) / 100
+        callUberButton.setTitle("Tu conductor está a \(roundDistance) km de distancia", for: .normal)
     }
     
 
@@ -57,33 +87,39 @@ class RiderViewController: UIViewController {
     
     @IBAction func callUberAction(_ sender: UIButton) {
         
-        if let email = Auth.auth().currentUser?.email{
+        // Si no hay un conductor asignado entonces podemos cancelar o pedir
+        if !driverOnTheWay{
             
-            if hasBeenUberCalled{
-                // Si ya lo ha llamado entonces poder borrar la petición
-                Database.database().reference().child("RideRequests").queryOrdered(byChild: "email").queryEqual(toValue: email).observe(.childAdded) { (snapshot) in
+            if let email = Auth.auth().currentUser?.email{
+                
+                if hasBeenUberCalled{
+                    // Si ya lo ha llamado entonces poder borrar la petición
+                    Database.database().reference().child("RideRequests").queryOrdered(byChild: "email").queryEqual(toValue: email).observe(.childAdded) { (snapshot) in
+                        
+                        
+                        self.hasBeenUberCalled = false
+                        self.callUberButton.setTitle("Llamar a un taxi", for: .normal)
+                        
+                        snapshot.ref.removeValue()
+                        Database.database().reference().child("RideRequests").removeAllObservers()
+                        
+                    }
                     
+                }else{
+                    // Sino pedirlo
                     
-                    self.hasBeenUberCalled = false
-                    self.callUberButton.setTitle("Llamar a un taxi", for: .normal)
+                    self.hasBeenUberCalled = true
+                    self.callUberButton.setTitle("Cancelar taxi", for: .normal)
                     
-                    snapshot.ref.removeValue()
-                    Database.database().reference().child("RideRequests").removeAllObservers()
-                    
-                    
+                    let data: [String:Any] = ["email": email, "lat": riderLocation.latitude, "lon": riderLocation.longitude]
+                    Database.database().reference().child("RideRequests").childByAutoId().setValue(data)
                 }
                 
-            }else{
-                // Sino pedirlo
-                
-                self.hasBeenUberCalled = true
-                self.callUberButton.setTitle("Cancelar taxi", for: .normal)
-                
-                let data: [String:Any] = ["email": email, "lat": riderLocation.latitude, "lon": riderLocation.longitude]
-                Database.database().reference().child("RideRequests").childByAutoId().setValue(data)
             }
- 
+            
         }
+        
+       
 
     }
     
