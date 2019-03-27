@@ -56,6 +56,29 @@ class RiderViewController: UIViewController {
                         self.displayDistanceBetweenDriverAndRider()
                         
                         
+                        // Ir observando si cambia la posicion del conductor
+                        Database.database().reference().child("RideRequests").queryOrdered(byChild: "email").queryEqual(toValue: Auth.auth().currentUser?.email).observe(.childChanged) { (snapshot) in
+                            
+                            if let snapValue = snapshot.value as? [String: AnyObject]{
+                                
+                                if let driverLat = snapValue["driverLat"] as? Double, let driverLon = snapValue["driverLon"] as? Double{
+                                    
+                                    // Asignar localización del conductor
+                                    self.driverLocation = CLLocationCoordinate2D(latitude: driverLat, longitude: driverLon)
+                                    
+                                    // Driver ya viene en camino
+                                    self.driverOnTheWay = true
+                                    self.displayDistanceBetweenDriverAndRider()
+                                    
+                                    
+                                }
+                                
+                            }
+                            
+                            
+                        }
+                        
+                        
                     }
                     
                 }

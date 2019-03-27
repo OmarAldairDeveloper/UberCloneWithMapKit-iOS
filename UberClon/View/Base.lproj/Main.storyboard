@@ -127,9 +127,12 @@
                                     <constraint firstAttribute="width" secondItem="ds4-xw-UHm" secondAttribute="height" multiplier="1:1" id="hHu-DM-y5S"/>
                                 </constraints>
                             </mapView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nqT-l1-3oK">
-                                <rect key="frame" x="133" y="441" width="108" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nqT-l1-3oK">
+                                <rect key="frame" x="62.5" y="453" width="250" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="GKO-kS-evq"/>
+                                    <constraint firstAttribute="width" constant="250" id="vsB-dA-Xng"/>
+                                </constraints>
                                 <state key="normal" title="Llamar a un taxi"/>
                                 <connections>
                                     <action selector="callUberAction:" destination="djT-Hw-pMg" eventType="touchUpInside" id="ncQ-Wh-Idr"/>
@@ -138,9 +141,11 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="nqT-l1-3oK" firstAttribute="top" secondItem="ds4-xw-UHm" secondAttribute="bottom" constant="20" id="4TU-4Q-wSj"/>
                             <constraint firstItem="ds4-xw-UHm" firstAttribute="leading" secondItem="PUf-ml-uFl" secondAttribute="leading" constant="8" id="FhF-ER-Wa2"/>
                             <constraint firstItem="PUf-ml-uFl" firstAttribute="trailing" secondItem="ds4-xw-UHm" secondAttribute="trailing" constant="8" id="SfT-nU-foV"/>
                             <constraint firstItem="ds4-xw-UHm" firstAttribute="top" secondItem="PUf-ml-uFl" secondAttribute="top" constant="10" id="lzB-Cg-zcP"/>
+                            <constraint firstItem="nqT-l1-3oK" firstAttribute="centerX" secondItem="TpC-NL-Ckt" secondAttribute="centerX" id="v66-uJ-5gr"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PUf-ml-uFl"/>
                     </view>
