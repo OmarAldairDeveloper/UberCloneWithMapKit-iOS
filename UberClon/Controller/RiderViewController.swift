@@ -82,18 +82,9 @@ class RiderViewController: UIViewController {
                 let data: [String:Any] = ["email": email, "lat": riderLocation.latitude, "lon": riderLocation.longitude]
                 Database.database().reference().child("RideRequests").childByAutoId().setValue(data)
             }
-            
-            
-           
-            
-            
-            
+ 
         }
-        
-       
-        
-        
-        
+
     }
     
 

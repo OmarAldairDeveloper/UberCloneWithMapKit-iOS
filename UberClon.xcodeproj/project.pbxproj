@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		69EDF076E2F851538A8FF87C /* Pods_UberClon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5FBADDF9CEA939149BDF981 /* Pods_UberClon.framework */; };
+		ED46DC4D224AF0F500DCE2E9 /* RiderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED46DC4C224AF0F500DCE2E9 /* RiderCell.swift */; };
+		ED46DC51224AF1BA00DCE2E9 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED46DC50224AF1BA00DCE2E9 /* Request.swift */; };
 		ED5D5D9B224AA57F0039E99E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5D5D9A224AA57F0039E99E /* AppDelegate.swift */; };
 		ED5D5D9D224AA57F0039E99E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5D5D9C224AA57F0039E99E /* ViewController.swift */; };
 		ED5D5DA0224AA57F0039E99E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED5D5D9E224AA57F0039E99E /* Main.storyboard */; };
@@ -20,6 +22,8 @@
 
 /* Begin PBXFileReference section */
 		00D141941FC10DDA51D26E89 /* Pods-UberClon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UberClon.debug.xcconfig"; path = "Target Support Files/Pods-UberClon/Pods-UberClon.debug.xcconfig"; sourceTree = "<group>"; };
+		ED46DC4C224AF0F500DCE2E9 /* RiderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiderCell.swift; sourceTree = "<group>"; };
+		ED46DC50224AF1BA00DCE2E9 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		ED5D5D97224AA57F0039E99E /* UberClon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UberClon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED5D5D9A224AA57F0039E99E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ED5D5D9C224AA57F0039E99E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -96,6 +100,7 @@
 		ED5D5DAC224AA5AE0039E99E /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				ED46DC50224AF1BA00DCE2E9 /* Request.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -106,6 +111,7 @@
 				ED5D5D9E224AA57F0039E99E /* Main.storyboard */,
 				ED5D5DA1224AA5800039E99E /* Assets.xcassets */,
 				ED5D5DA3224AA5800039E99E /* LaunchScreen.storyboard */,
+				ED46DC4C224AF0F500DCE2E9 /* RiderCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -249,6 +255,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				ED5D5DB4224AB1B00039E99E /* DriverViewController.swift in Sources */,
+				ED46DC51224AF1BA00DCE2E9 /* Request.swift in Sources */,
+				ED46DC4D224AF0F500DCE2E9 /* RiderCell.swift in Sources */,
 				ED5D5D9D224AA57F0039E99E /* ViewController.swift in Sources */,
 				ED5D5DB2224AB18D0039E99E /* RiderViewController.swift in Sources */,
 				ED5D5D9B224AA57F0039E99E /* AppDelegate.swift in Sources */,
