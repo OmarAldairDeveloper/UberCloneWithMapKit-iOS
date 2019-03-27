@@ -106,6 +106,7 @@ class DriverViewController: UICollectionViewController {
                 destinationVC.riderEmail = request.email
                 let riderLocation = CLLocationCoordinate2D(latitude: request.lat, longitude: request.lon)
                 destinationVC.riderLocation = riderLocation
+                destinationVC.driverLocation = CLLocationCoordinate2D(latitude: driverLocation.latitude, longitude: driverLocation.longitude)
             }
             
         }

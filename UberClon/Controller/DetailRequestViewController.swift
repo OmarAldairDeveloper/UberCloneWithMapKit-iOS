@@ -8,6 +8,7 @@
 
 import UIKit
 import MapKit
+import FirebaseDatabase
 
 class DetailRequestViewController: UIViewController {
     
@@ -17,6 +18,7 @@ class DetailRequestViewController: UIViewController {
     
     var riderEmail = ""
     var riderLocation = CLLocationCoordinate2D()
+    var driverLocation = CLLocationCoordinate2D()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,6 +42,39 @@ class DetailRequestViewController: UIViewController {
     
     
     @IBAction func acceptAction(_ sender: UIButton) {
+        
+        // Vamos a poner a la petición del usuario en la base de datos, 2 campos más que serán la localización del driver asignado
+        Database.database().reference().child("RideRequests").queryOrdered(byChild: "email").queryEqual(toValue: riderEmail).observe(.childAdded) { (snapshot) in
+            
+            
+            snapshot.ref.updateChildValues(["driverLat":self.driverLocation.latitude, "driverLon":self.driverLocation.longitude])
+            
+            
+            Database.database().reference().child("RideRequests").removeAllObservers()
+        }
+        
+        
+        
+        // Vamos a abrir el mapa para que el conductor vaya hacía el pasaje
+        let requestCLLocation = CLLocation(latitude: riderLocation.latitude, longitude: riderLocation.longitude)
+        
+        
+        CLGeocoder().reverseGeocodeLocation(requestCLLocation) { (placemarks, error) in
+            
+            if let placemarks = placemarks{
+                if placemarks.count > 0{
+                    let placeMark = MKPlacemark(placemark: placemarks[0])
+                    let mapItem = MKMapItem(placemark: placeMark)
+                    mapItem.name = self.riderEmail
+                    
+                    // Modo manejo
+                    let options = [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving]
+                    mapItem.openInMaps(launchOptions: options)
+                }
+            }
+        }
+        
+    
         
         
         
