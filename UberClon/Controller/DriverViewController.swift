@@ -36,12 +36,24 @@ class DriverViewController: UICollectionViewController {
                 
                 if let email = snapValue["email"] as? String, let lat = snapValue["lat"] as? Double, let lon = snapValue["lon"] as? Double{
                     
-                    let request = Request(email: email, lat: lat, lon: lon)
-                    self.requests.append(request)
-                    self.collectionView.reloadData()
+                    // Si la petición tiene latitud entonces significa que ya hay conductor asignado, entonces no mostramos ese viaje, de lo contrario si lo mostraremos
+                    if let driverLat = snapValue["driverLat"] as? Double{
+                        
+                    }else{
+                        let request = Request(email: email, lat: lat, lon: lon)
+                        self.requests.append(request)
+                        self.collectionView.reloadData()
+                    }
+                    
+                    
                 }
                 
             }
+        }
+        
+        Timer.scheduledTimer(withTimeInterval: 5, repeats: true) { (_) in
+            // Que cada 5 segundos se actualicen los viajes
+            self.collectionView.reloadData()
         }
 
     }
