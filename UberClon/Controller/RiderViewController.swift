@@ -76,6 +76,30 @@ class RiderViewController: UIViewController {
         let distance = driverCLLocation.distance(from: riderCLLocation) / 1000
         let roundDistance = round(distance * 100) / 100
         callUberButton.setTitle("Tu conductor está a \(roundDistance) km de distancia", for: .normal)
+        
+        
+        // Ahora el paso es mostrar a ambos en el mapa
+        map.removeAnnotations(map.annotations)
+        
+        // Calcular la distancia de la cual se tiene que ver ambos, tanto el conductor como el pasajero
+        let latDelta = abs(driverLocation.latitude - riderLocation.latitude) * 2 + 0.005
+        let lonDelta = abs(driverLocation.longitude - riderLocation.longitude) * 2 + 0.005
+        let region = MKCoordinateRegion(center: riderLocation, span: MKCoordinateSpan(latitudeDelta: latDelta, longitudeDelta: lonDelta))
+        map.setRegion(region, animated: true)
+        
+        // Annotation del pasajero
+        let riderAnnotation = MKPointAnnotation()
+        riderAnnotation.coordinate = riderLocation
+        riderAnnotation.title = "Tu punto de partida"
+        map.addAnnotation(riderAnnotation)
+        
+        // Annotation del conductor
+        let driverAnnotation = MKPointAnnotation()
+        driverAnnotation.coordinate = driverLocation
+        driverAnnotation.title = "Tu conductor"
+        map.addAnnotation(driverAnnotation)
+        
+        
     }
     
 
@@ -139,18 +163,25 @@ extension RiderViewController: CLLocationManagerDelegate{
             // Asignar localización de usuario
             riderLocation = center
             
-            // Región rectangular de la localización y su largo y ancho de la región es 0.01
-            let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
-            map.setRegion(region, animated: true)
+           
             
-            
-            
-            // Annotations
-            map.removeAnnotations(map.annotations) // Remover todas las anotaciones para que se muestre nadamas la nueva
-            let annotation = MKPointAnnotation()
-            annotation.coordinate = center
-            annotation.title = "Tu localización actual"
-            map.addAnnotation(annotation)
+            // Si ya se ha llamado a un Uber entonces esperar a llamar al conductor, sino insistir en mostrar nadamas la localización del usuario
+            if hasBeenUberCalled{
+                self.displayDistanceBetweenDriverAndRider()
+            }else{
+                // Región rectangular de la localización y su largo y ancho de la región es 0.01
+                let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+                map.setRegion(region, animated: true)
+                
+                
+                
+                // Annotations
+                map.removeAnnotations(map.annotations) // Remover todas las anotaciones para que se muestre nadamas la nueva
+                let annotation = MKPointAnnotation()
+                annotation.coordinate = center
+                annotation.title = "Tu localización actual"
+                map.addAnnotation(annotation)
+            }
             
         
         }
