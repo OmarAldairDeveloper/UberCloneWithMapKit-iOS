@@ -80,10 +80,35 @@ class DriverViewController: UICollectionViewController {
         let distance = driverCLLocation.distance(from: riderCLLocation) / 1000
         let roundDistance = round(distance * 100) / 100
         
+        // Valores
         cell.emailLabel.text = request.email
         cell.riderDistance.text = "\(roundDistance) km de distancia"
     
         return cell
+    }
+    
+    
+    
+    // MARK: UICollectionViewDelegate
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        // Ir a la pantalla del viaje y pasar la request
+        let request = requests[indexPath.row]
+        performSegue(withIdentifier: "detailRequestSegue", sender: request)
+        
+    }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destinationVC = segue.destination as? DetailRequestViewController{
+            // Mandar valores al viewController
+            if let request = sender as? Request{
+                destinationVC.riderEmail = request.email
+                let riderLocation = CLLocationCoordinate2D(latitude: request.lat, longitude: request.lon)
+                destinationVC.riderLocation = riderLocation
+            }
+            
+        }
     }
 
    

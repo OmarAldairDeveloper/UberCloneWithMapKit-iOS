@@ -248,10 +248,54 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="tRY-II-KaH" kind="show" identifier="detailRequestSegue" id="Ahf-Am-c19"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l7V-Hn-z3T" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1960.8" y="902.69865067466276"/>
+        </scene>
+        <!--Detail Request View Controller-->
+        <scene sceneID="JpN-OE-GWf">
+            <objects>
+                <viewController id="tRY-II-KaH" customClass="DetailRequestViewController" customModule="UberClon" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="VfB-8g-SGI">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="GxL-gE-CEJ">
+                                <rect key="frame" x="8" y="74" width="359" height="359"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="GxL-gE-CEJ" secondAttribute="height" multiplier="1:1" id="Cq9-AT-yNf"/>
+                                </constraints>
+                            </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7am-Yb-JxE">
+                                <rect key="frame" x="143" y="453" width="89" height="30"/>
+                                <state key="normal" title="Aceptar viaje"/>
+                                <connections>
+                                    <action selector="acceptAction:" destination="tRY-II-KaH" eventType="touchUpInside" id="Ia2-Di-0yc"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="7am-Yb-JxE" firstAttribute="centerX" secondItem="VfB-8g-SGI" secondAttribute="centerX" id="A6Z-jS-Jh8"/>
+                            <constraint firstItem="jPb-0p-sBc" firstAttribute="trailing" secondItem="GxL-gE-CEJ" secondAttribute="trailing" constant="8" id="Dsd-IX-f4I"/>
+                            <constraint firstItem="7am-Yb-JxE" firstAttribute="top" secondItem="GxL-gE-CEJ" secondAttribute="bottom" constant="20" id="Yud-Fa-xgm"/>
+                            <constraint firstItem="GxL-gE-CEJ" firstAttribute="top" secondItem="jPb-0p-sBc" secondAttribute="top" constant="10" id="hrF-g3-1Ev"/>
+                            <constraint firstItem="GxL-gE-CEJ" firstAttribute="leading" secondItem="jPb-0p-sBc" secondAttribute="leading" constant="8" id="mvQ-Ib-3t2"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="jPb-0p-sBc"/>
+                    </view>
+                    <connections>
+                        <outlet property="acceptButton" destination="7am-Yb-JxE" id="6Om-hX-hdc"/>
+                        <outlet property="map" destination="GxL-gE-CEJ" id="iaW-Q1-Foo"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vm3-qv-5Ej" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2869.5999999999999" y="902.69865067466276"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ze0-HX-gUJ">
