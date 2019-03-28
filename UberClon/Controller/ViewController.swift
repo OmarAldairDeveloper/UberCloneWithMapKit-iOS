@@ -20,11 +20,17 @@ class ViewController: UIViewController {
     @IBOutlet weak var signInButton: UIButton!
     
     
+    // UISettings
+    @IBOutlet weak var container: UIView!
+    
+    
     var isSignUpMode = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        
+        configureUI()
     }
 
     @IBAction func signUpAction(_ sender: UIButton) {
@@ -163,6 +169,16 @@ class ViewController: UIViewController {
         
         
         
+    }
+    
+    func configureUI(){
+        let mainYellow = UIColor(red: CGFloat(251)/255, green: CGFloat(192)/255, blue: CGFloat(45)/255, alpha: 1)
+        
+        self.view.backgroundColor = mainYellow
+        self.container.layer.cornerRadius = 16
+        self.driverSwitch.onTintColor = mainYellow
+        self.registerButton.backgroundColor = mainYellow
+        self.registerButton.layer.cornerRadius = 20
     }
     
 }

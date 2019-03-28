@@ -18,86 +18,111 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Taxi" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hc3-j7-Uou">
-                                <rect key="frame" x="150.5" y="40" width="74.5" height="52"/>
-                                <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="40"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="yV1-fS-Ne1">
-                                <rect key="frame" x="16" y="112" width="343" height="90"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="LIG-DN-buf">
+                                <rect key="frame" x="127.5" y="40" width="120" height="120"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="2Y7-cn-v1R"/>
+                                    <constraint firstAttribute="height" constant="120" id="Ic1-li-Iux"/>
+                                </constraints>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="obf-KW-9K5">
+                                <rect key="frame" x="20" y="195" width="335" height="437"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ingresa tu correo" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fpc-aY-xjr">
-                                        <rect key="frame" x="0.0" y="0.0" width="343" height="30"/>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ingresa tu contraseña" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uht-DO-q3k">
-                                        <rect key="frame" x="0.0" y="60" width="343" height="30"/>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                </subviews>
-                            </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="pEO-Sz-Leq">
-                                <rect key="frame" x="85" y="323" width="205.5" height="30"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="O Inicia sesión" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mae-zL-qV5">
-                                        <rect key="frame" x="0.0" y="0.0" width="110.5" height="30"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ago-1j-xQS">
-                                        <rect key="frame" x="115.5" y="0.0" width="90" height="30"/>
-                                        <state key="normal" title="Iniciar sesión"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="23" translatesAutoresizingMaskIntoConstraints="NO" id="yV1-fS-Ne1">
+                                        <rect key="frame" x="16" y="25" width="303" height="83"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ingresa tu correo" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fpc-aY-xjr">
+                                                <rect key="frame" x="0.0" y="0.0" width="303" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ingresa tu contraseña" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uht-DO-q3k">
+                                                <rect key="frame" x="0.0" y="53" width="303" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="zdm-8s-v36">
+                                        <rect key="frame" x="86" y="128" width="163.5" height="31"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¿Eres conductor?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CGF-ZF-5Jg">
+                                                <rect key="frame" x="0.0" y="0.0" width="109.5" height="31"/>
+                                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="16"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="12H-pC-UjX">
+                                                <rect key="frame" x="114.5" y="0.0" width="51" height="31"/>
+                                                <color key="onTintColor" red="1" green="0.93871900190000002" blue="0.21303943259999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </switch>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="pEO-Sz-Leq">
+                                        <rect key="frame" x="74" y="379" width="187.5" height="33"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="O Inicia sesión" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mae-zL-qV5">
+                                                <rect key="frame" x="0.0" y="0.0" width="90.5" height="33"/>
+                                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="16"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ago-1j-xQS">
+                                                <rect key="frame" x="95.5" y="0.0" width="92" height="33"/>
+                                                <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="16"/>
+                                                <state key="normal" title="Iniciar sesión">
+                                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="changeAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="J8O-TC-60B"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F0C-Jy-iGj">
+                                        <rect key="frame" x="92.5" y="179" width="150" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="GIn-sX-KDA"/>
+                                            <constraint firstAttribute="width" constant="150" id="amv-yu-RXG"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="19"/>
+                                        <state key="normal" title="Registrarse">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
                                         <connections>
-                                            <action selector="changeAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="J8O-TC-60B"/>
+                                            <action selector="signUpAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="IGE-Uf-Ib7"/>
                                         </connections>
                                     </button>
                                 </subviews>
-                            </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="zdm-8s-v36">
-                                <rect key="frame" x="94" y="222" width="187.5" height="31"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¿Eres conductor?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CGF-ZF-5Jg">
-                                        <rect key="frame" x="0.0" y="0.0" width="133.5" height="31"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="12H-pC-UjX">
-                                        <rect key="frame" x="138.5" y="0.0" width="51" height="31"/>
-                                    </switch>
-                                </subviews>
-                            </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F0C-Jy-iGj">
-                                <rect key="frame" x="148.5" y="273" width="78" height="30"/>
-                                <state key="normal" title="Registrarse"/>
-                                <connections>
-                                    <action selector="signUpAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="IGE-Uf-Ib7"/>
-                                </connections>
-                            </button>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="F0C-Jy-iGj" firstAttribute="top" secondItem="zdm-8s-v36" secondAttribute="bottom" constant="20" id="9px-d4-XPA"/>
+                                    <constraint firstItem="F0C-Jy-iGj" firstAttribute="centerX" secondItem="obf-KW-9K5" secondAttribute="centerX" id="UXi-mg-U1g"/>
+                                    <constraint firstAttribute="trailing" secondItem="yV1-fS-Ne1" secondAttribute="trailing" constant="16" id="VvA-vz-E5z"/>
+                                    <constraint firstItem="pEO-Sz-Leq" firstAttribute="centerX" secondItem="obf-KW-9K5" secondAttribute="centerX" id="XGh-qs-gFK"/>
+                                    <constraint firstItem="yV1-fS-Ne1" firstAttribute="top" secondItem="obf-KW-9K5" secondAttribute="top" constant="25" id="eu5-p1-FId"/>
+                                    <constraint firstAttribute="bottom" secondItem="pEO-Sz-Leq" secondAttribute="bottom" constant="25" id="g1t-Dz-zfA"/>
+                                    <constraint firstItem="zdm-8s-v36" firstAttribute="centerX" secondItem="obf-KW-9K5" secondAttribute="centerX" id="iUh-wk-V4m"/>
+                                    <constraint firstItem="zdm-8s-v36" firstAttribute="top" secondItem="yV1-fS-Ne1" secondAttribute="bottom" constant="20" id="shh-Cs-qtt"/>
+                                    <constraint firstItem="yV1-fS-Ne1" firstAttribute="leading" secondItem="obf-KW-9K5" secondAttribute="leading" constant="16" id="zhp-qZ-4oH"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="yV1-fS-Ne1" firstAttribute="top" secondItem="hc3-j7-Uou" secondAttribute="bottom" constant="20" id="8dd-eh-nGm"/>
-                            <constraint firstItem="zdm-8s-v36" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="C3r-d6-tzx"/>
-                            <constraint firstItem="hc3-j7-Uou" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Cir-L1-9MX"/>
-                            <constraint firstItem="yV1-fS-Ne1" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="I3b-9H-uXL"/>
-                            <constraint firstItem="zdm-8s-v36" firstAttribute="top" secondItem="yV1-fS-Ne1" secondAttribute="bottom" constant="20" id="WdP-h6-xwW"/>
-                            <constraint firstItem="F0C-Jy-iGj" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="fcJ-MJ-ti7"/>
-                            <constraint firstItem="F0C-Jy-iGj" firstAttribute="top" secondItem="zdm-8s-v36" secondAttribute="bottom" constant="20" id="hhz-oG-l1V"/>
-                            <constraint firstItem="pEO-Sz-Leq" firstAttribute="top" secondItem="F0C-Jy-iGj" secondAttribute="bottom" constant="20" id="qtn-dB-PFF"/>
-                            <constraint firstItem="pEO-Sz-Leq" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="t3T-6C-pq2"/>
-                            <constraint firstItem="hc3-j7-Uou" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="vBS-H2-qef"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="yV1-fS-Ne1" secondAttribute="trailing" constant="16" id="vqI-60-YlI"/>
+                            <constraint firstItem="LIG-DN-buf" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="DdB-hD-a8K"/>
+                            <constraint firstItem="obf-KW-9K5" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="aEY-SW-o2L"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="obf-KW-9K5" secondAttribute="bottom" constant="35" id="evJ-jX-Ggj"/>
+                            <constraint firstItem="LIG-DN-buf" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="oej-eb-XO4"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="obf-KW-9K5" secondAttribute="trailing" constant="20" id="rdz-SN-4lM"/>
+                            <constraint firstItem="obf-KW-9K5" firstAttribute="top" secondItem="LIG-DN-buf" secondAttribute="bottom" constant="35" id="uac-UC-72H"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="container" destination="obf-KW-9K5" id="mfL-2C-aAy"/>
                         <outlet property="driverLabel" destination="CGF-ZF-5Jg" id="3kQ-mf-9BV"/>
                         <outlet property="driverSwitch" destination="12H-pC-UjX" id="W9f-ua-UMT"/>
                         <outlet property="emailTextField" destination="fpc-aY-xjr" id="gGv-Y3-TXx"/>
@@ -322,6 +347,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="logo" width="409.60000610351562" height="409.60000610351562"/>
         <image name="users" width="46.428211212158203" height="46.428211212158203"/>
     </resources>
 </document>
