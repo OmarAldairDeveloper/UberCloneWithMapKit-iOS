@@ -26,6 +26,8 @@ class RiderViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        configureUI()
 
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
@@ -169,6 +171,17 @@ class RiderViewController: UIViewController {
        
 
     }
+    
+    func configureUI(){
+        let mainYellow = UIColor(red: CGFloat(251)/255, green: CGFloat(192)/255, blue: CGFloat(45)/255, alpha: 1)
+        
+        callUberButton.backgroundColor = mainYellow
+        callUberButton.layer.cornerRadius = 20
+        self.navigationController?.navigationBar.barTintColor = mainYellow
+        callUberButton.titleLabel?.adjustsFontSizeToFitWidth = true
+        
+    }
+    
     
 
 }

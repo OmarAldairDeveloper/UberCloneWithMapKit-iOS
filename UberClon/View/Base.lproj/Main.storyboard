@@ -153,12 +153,15 @@
                                 </constraints>
                             </mapView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nqT-l1-3oK">
-                                <rect key="frame" x="62.5" y="453" width="250" height="60"/>
+                                <rect key="frame" x="62.5" y="453" width="250" height="80"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="GKO-kS-evq"/>
+                                    <constraint firstAttribute="height" constant="80" id="GKO-kS-evq"/>
                                     <constraint firstAttribute="width" constant="250" id="vsB-dA-Xng"/>
                                 </constraints>
-                                <state key="normal" title="Llamar a un taxi"/>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="16"/>
+                                <state key="normal" title="Llamar a un taxi">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="callUberAction:" destination="djT-Hw-pMg" eventType="touchUpInside" id="ncQ-Wh-Idr"/>
                                 </connections>
@@ -176,6 +179,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="YM6-iv-iVj">
                         <barButtonItem key="leftBarButtonItem" title="Cerrar sesión" id="rbl-Uc-Sjh">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="signOutAction:" destination="djT-Hw-pMg" id="osn-y6-Gfw"/>
                             </connections>
