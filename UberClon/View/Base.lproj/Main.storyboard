@@ -158,7 +158,7 @@
                                     <constraint firstAttribute="height" constant="80" id="GKO-kS-evq"/>
                                     <constraint firstAttribute="width" constant="250" id="vsB-dA-Xng"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="16"/>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="18"/>
                                 <state key="normal" title="Llamar a un taxi">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -212,7 +212,7 @@
             </objects>
             <point key="canvasLocation" x="1053.5999999999999" y="133.5832083958021"/>
         </scene>
-        <!--Driver View Controller-->
+        <!--Viajes-->
         <scene sceneID="NJA-SC-TJG">
             <objects>
                 <collectionViewController id="vds-oL-g33" customClass="DriverViewController" customModule="UberClon" customModuleProvider="target" sceneMemberID="viewController">
@@ -275,8 +275,9 @@
                             <outlet property="delegate" destination="vds-oL-g33" id="mPP-TJ-Alj"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" id="kBJ-d6-CN8">
+                    <navigationItem key="navigationItem" title="Viajes" id="kBJ-d6-CN8">
                         <barButtonItem key="leftBarButtonItem" title="Cerrar sesión" id="PQs-hU-Rmx">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="signOutAction:" destination="vds-oL-g33" id="np9-JN-Xgr"/>
                             </connections>
@@ -305,14 +306,22 @@
                                 </constraints>
                             </mapView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7am-Yb-JxE">
-                                <rect key="frame" x="143" y="453" width="89" height="30"/>
-                                <state key="normal" title="Aceptar viaje"/>
+                                <rect key="frame" x="62.5" y="453" width="250" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="5lq-P1-V9R"/>
+                                    <constraint firstAttribute="width" constant="250" id="FGl-o5-B1G"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="18"/>
+                                <state key="normal" title="Aceptar viaje">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="acceptAction:" destination="tRY-II-KaH" eventType="touchUpInside" id="Ia2-Di-0yc"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="7am-Yb-JxE" firstAttribute="centerX" secondItem="VfB-8g-SGI" secondAttribute="centerX" id="A6Z-jS-Jh8"/>
                             <constraint firstItem="jPb-0p-sBc" firstAttribute="trailing" secondItem="GxL-gE-CEJ" secondAttribute="trailing" constant="8" id="Dsd-IX-f4I"/>

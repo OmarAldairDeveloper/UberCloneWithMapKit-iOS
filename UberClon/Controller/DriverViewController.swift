@@ -22,6 +22,8 @@ class DriverViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        configureUI()
+        
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestWhenInUseAuthorization()
@@ -122,6 +124,16 @@ class DriverViewController: UICollectionViewController {
             }
             
         }
+    }
+    
+    
+    func configureUI(){
+        let mainYellow = UIColor(red: CGFloat(251)/255, green: CGFloat(192)/255, blue: CGFloat(45)/255, alpha: 1)
+        
+        
+        self.navigationController?.navigationBar.barTintColor = mainYellow
+        
+        
     }
 
    

@@ -23,6 +23,7 @@ class DetailRequestViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        configureUI()
         // Agregar región
         let region = MKCoordinateRegion(center: riderLocation, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
         map.setRegion(region, animated: true)
@@ -77,6 +78,18 @@ class DetailRequestViewController: UIViewController {
     
         
         
+        
+        
+    }
+    
+    
+    func configureUI(){
+        let mainYellow = UIColor(red: CGFloat(251)/255, green: CGFloat(192)/255, blue: CGFloat(45)/255, alpha: 1)
+        
+        
+        self.navigationController?.navigationBar.barTintColor = mainYellow
+        acceptButton.layer.cornerRadius = 20
+        acceptButton.backgroundColor = mainYellow
         
         
     }
