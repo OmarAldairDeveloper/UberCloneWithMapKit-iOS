@@ -8,8 +8,12 @@
 
 import UIKit
 import FirebaseAuth
+import GoogleSignIn
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, GIDSignInUIDelegate {
+
+    
+   
 
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -22,16 +26,25 @@ class ViewController: UIViewController {
     
     // UISettings
     @IBOutlet weak var container: UIView!
-    
-    
     var isSignUpMode = true
+    
+    // Google Button
+    let googleButton = GIDSignInButton()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Configuración del botón de google
+        googleButton.isHidden = true
+        googleButton.frame = CGRect(x: 32, y: registerButton.frame.midY + 200, width: container.frame.width - 32, height: 50)
+        self.view.addSubview(googleButton)
+        GIDSignIn.sharedInstance().uiDelegate = self
         
+    
         configureUI()
     }
+    
 
     @IBAction func signUpAction(_ sender: UIButton) {
         
@@ -106,7 +119,9 @@ class ViewController: UIViewController {
             registerButton.setTitle("Iniciar sesión", for: .normal)
             signInLabel.text = "O regístrate"
             signInButton.setTitle("Registrarse", for: .normal)
+            googleButton.isHidden = false
             isSignUpMode = false
+            
         }else{
             
             driverLabel.isHidden = false
@@ -114,6 +129,7 @@ class ViewController: UIViewController {
             registerButton.setTitle("Registrarse", for: .normal)
             signInLabel.text = "O Inicia sesión"
             signInButton.setTitle("Iniciar sesión", for: .normal)
+            googleButton.isHidden = true
             isSignUpMode = true
             
         }
